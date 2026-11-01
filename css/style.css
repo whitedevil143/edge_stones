@@ -367,6 +367,13 @@ img.brand-mark{ border-radius:50%; object-fit:cover; background:#fff; }
 
 /* ---------- features ---------- */
 .features{ background:var(--pine-2); color:var(--sand); }
+.features .eyebrow{color:#e8d4ad;}
+.features .eyebrow::before{background:#d3b98e;}
+.features .split-head h2,.features .split-head h2 .italic{color:#f4f0e6;}
+.features .split-head h2 .italic{color:#d3b98e;}
+.features .f-card h3{color:#fff;}
+.features .f-card p{color:#e4e9e5;}
+.features .f-card .icon{color:#63edc3;}
 .feature-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.4rem; }
 .f-card{
   border:1px solid var(--line-lite); border-radius:var(--r-lg); padding:2rem 1.6rem;
