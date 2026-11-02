@@ -131,11 +131,23 @@ html{scroll-behavior:smooth}
 .features [data-reveal],.features [data-stagger]{opacity:1!important;visibility:visible!important;transform:none!important;filter:none!important}
 .features .split-head{display:block!important;opacity:1!important;visibility:visible!important}
 
-/* Full-width animated sketchbook homepage */
-.sketchbook-home{width:100%;background:#f5f2eb;padding:0 0 26px;overflow:hidden}
-.sketchbook-frame{position:relative;width:100%;height:min(78vw,760px);min-height:470px;background:#102b25;overflow:hidden}
+/* EDGE STONES homepage hero and expanded sketchbook */
+.edge-home-hero{width:100%;height:clamp(390px,58vw,760px);min-height:390px;overflow:hidden;background:#142d25}
+.edge-home-hero img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 54%}
+.sketchbook-home{width:100%;background:#f5f2eb;padding:clamp(34px,5vw,64px) 0 30px;overflow:hidden}
+.sketchbook-heading{text-align:center;max-width:760px;margin:0 auto 24px;padding:0 20px}
+.sketchbook-heading .eyebrow{color:#8a6b3e;font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;margin:0 0 10px}
+.sketchbook-heading h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;color:#183b30;margin:0 0 10px}
+.sketchbook-heading h2 span{font-family:Georgia,serif;font-style:italic;color:#a17e4c}
+.sketchbook-heading>p:last-child{color:#59645c;font-size:.95rem;line-height:1.65;margin:0}
+.sketchbook-frame{position:relative;width:min(96%,1500px);height:min(82vw,850px);min-height:540px;margin:0 auto;background:#102b25;overflow:hidden;border:10px solid #fff;border-radius:7px;box-shadow:0 20px 55px rgba(20,45,37,.16)}
 .sketchbook-frame iframe{display:block;width:100%;height:100%;border:0;background:#102b25}
-.sketchbook-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:22px 16px 12px}
+.sketchbook-gallery{width:min(92%,1320px);margin:24px auto 0;display:grid;grid-template-columns:1.35fr 1fr;gap:18px;align-items:stretch}
+.sketchbook-photo{margin:0;position:relative;overflow:hidden;background:#e6e0d4;border-radius:5px;min-height:260px;box-shadow:0 10px 30px rgba(20,45,37,.09)}
+.sketchbook-photo img{display:block;width:100%;height:100%;min-height:260px;max-height:470px;object-fit:cover;transition:transform .65s ease}
+.sketchbook-photo:hover img{transform:scale(1.035)}
+.sketchbook-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 18px 15px;color:#fff;font-size:.82rem;font-weight:600;letter-spacing:.025em;background:linear-gradient(transparent,rgba(8,24,19,.72))}
+.sketchbook-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:24px 16px 12px}
 .sketchbook-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:36px;padding:0 16px;border-radius:999px;font-family:Outfit,sans-serif;font-size:12px;font-weight:600;letter-spacing:.02em;text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
 .sketchbook-btn:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(16,43,37,.13)}
 .sketchbook-btn-primary{background:#183b30;color:#fff;border:1px solid #183b30}
@@ -146,11 +158,15 @@ html{scroll-behavior:smooth}
 .sketchbook-locations b{color:#183b30;font-weight:700}
 .sketchbook-locations i{font-style:normal;color:#b18d58}
 @media(max-width:700px){
- .sketchbook-home{padding-bottom:20px}
- .sketchbook-frame{height:68vh;min-height:440px;max-height:650px}
- .sketchbook-actions{gap:8px;padding:16px 10px 10px}
- .sketchbook-btn{min-height:34px;padding:0 13px;font-size:11px}
- .sketchbook-locations{font-size:9px;gap:6px}
+.edge-home-hero{height:68vh;min-height:420px;max-height:680px}
+.edge-home-hero img{object-position:52% center}
+.sketchbook-home{padding-bottom:20px}
+.sketchbook-frame{width:96%;height:76vh;min-height:500px;max-height:760px;border-width:6px}
+.sketchbook-gallery{width:92%;grid-template-columns:1fr;gap:12px;margin-top:16px}
+.sketchbook-photo,.sketchbook-photo img{min-height:230px;max-height:390px}
+.sketchbook-actions{gap:8px;padding:18px 10px 10px}
+.sketchbook-btn{min-height:34px;padding:0 13px;font-size:11px}
+.sketchbook-locations{font-size:9px;gap:6px}
 }
 </style>
 </head>
@@ -201,28 +217,9 @@ html{scroll-behavior:smooth}
 
 <main>
 
-<!-- ================= SKETCHBOOK HOMEPAGE ================= -->
-<section class="sketchbook-home" aria-label="EDGE STONES animated sketchbook">
-  <div class="sketchbook-frame">
-    <iframe
-      src="edge-sketchbook.html"
-      title="EDGE STONES animated sketchbook"
-      loading="eager"
-      allow="autoplay"
-      referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
-  </div>
-  <div class="sketchbook-actions">
-    <a class="sketchbook-btn sketchbook-btn-primary" href="products.html">Explore collections <span aria-hidden="true">↗</span></a>
-    <a class="sketchbook-btn sketchbook-btn-secondary" href="https://wa.me/917306684418?text=Hi%20EDGE%20STONES!%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Let’s talk on WhatsApp <span aria-hidden="true">↗</span></a>
-  </div>
-  <div class="sketchbook-locations" aria-label="Office and branches">
-    <span><b>Head Office</b> Kanjirapally</span>
-    <i aria-hidden="true">·</i>
-    <span>Erumbupalam Branch</span>
-    <i aria-hidden="true">·</i>
-    <span>Kattapana Branch</span>
-  </div>
+<!-- ================= HOMEPAGE HERO IMAGE ================= -->
+<section class="edge-home-hero" aria-label="EDGE STONES landscape showcase">
+<img src="https://drive.google.com/uc?export=view&id=15pZnI6X5ca4q7DKupRzet4IrBoWb4fYq" alt="EDGE STONES natural stone lettering set in a landscaped hillside garden" fetchpriority="high">
 </section>
 
 <!-- ================= MARQUEE ================= -->
@@ -327,6 +324,21 @@ html{scroll-behavior:smooth}
 
     </div>
   </div>
+</section>
+
+<!-- ================= ANIMATED SKETCHBOOK + PROJECT PHOTOS ================= -->
+<section class="sketchbook-home" aria-label="EDGE STONES animated sketchbook and project gallery">
+<div class="sketchbook-heading"><p class="eyebrow">A closer look at our work</p><h2>Ideas take <span>shape.</span></h2><p>Explore the EDGE STONES sketchbook and a glimpse of our landscaping projects.</p></div>
+<div class="sketchbook-frame"><iframe src="edge-sketchbook.html" title="EDGE STONES animated sketchbook" loading="lazy" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+<div class="sketchbook-gallery" aria-label="EDGE STONES landscaping project photographs">
+<figure class="sketchbook-photo sketchbook-photo-wide"><img src="https://drive.google.com/uc?export=view&id=1Jbao5EbqZyUnPsWJ2V03-LNgwbfE2A5m" alt="EDGE STONES residential landscaping with a stone driveway and green lawn" loading="lazy"><figcaption>Landscaping that welcomes you home</figcaption></figure>
+<figure class="sketchbook-photo"><img src="https://drive.google.com/uc?export=view&id=11finG-DdHx3JZzZ-4kMNVsNWMPjmGR4P" alt="Natural stone pathway with a decorative garden border" loading="lazy"><figcaption>Details shaped by nature</figcaption></figure>
+</div>
+<div class="sketchbook-actions">
+<a class="sketchbook-btn sketchbook-btn-primary" href="products.html">Explore collections <span aria-hidden="true">↗</span></a>
+<a class="sketchbook-btn sketchbook-btn-secondary" href="https://wa.me/917306684418?text=Hi%20EDGE%20STONES!%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Let’s talk on WhatsApp <span aria-hidden="true">↗</span></a>
+</div>
+<div class="sketchbook-locations" aria-label="Office and branches"><span><b>Head Office</b> Kanjirapally</span><i aria-hidden="true">·</i><span>Erumbupalam Branch</span><i aria-hidden="true">·</i><span>Kattapana Branch</span></div>
 </section>
 
 <!-- ================= WHY EDGE ================= -->
