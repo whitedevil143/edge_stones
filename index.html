@@ -132,8 +132,15 @@ html{scroll-behavior:smooth}
 .features .split-head{display:block!important;opacity:1!important;visibility:visible!important}
 
 /* EDGE STONES homepage hero and expanded sketchbook */
-.edge-home-hero{width:100%;height:clamp(390px,58vw,760px);min-height:390px;overflow:hidden;background:#142d25}
-.edge-home-hero img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 54%}
+.edge-home-hero{position:relative;width:100%;overflow:hidden;background:#f5f2eb;isolation:isolate}
+.edge-home-hero img{display:block;width:100%;height:auto;object-fit:cover;object-position:center}
+.edge-home-hero::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,24,18,.62) 0%,rgba(8,24,18,.35) 34%,rgba(8,24,18,.08) 66%,transparent 82%)}
+.edge-home-brand{position:absolute;z-index:1;left:clamp(24px,8vw,128px);top:43%;transform:translateY(-50%);margin:0;color:#fff;font-family:var(--font-display,Georgia,serif);font-size:clamp(2.4rem,7.4vw,7rem);font-weight:700;line-height:.96;letter-spacing:.035em;text-shadow:0 3px 24px rgba(0,0,0,.3)}
+.edge-home-brand::after{content:"";display:block;width:clamp(54px,7vw,100px);height:3px;margin-top:clamp(14px,2vw,24px);background:#c7a66c}
+@media(max-width:700px){
+.edge-home-hero::after{background:linear-gradient(90deg,rgba(8,24,18,.55),rgba(8,24,18,.12) 76%,transparent)}
+.edge-home-brand{left:22px;top:40%;font-size:clamp(2.1rem,9vw,3.4rem)}
+}
 .sketchbook-home{width:100%;background:#f5f2eb;padding:clamp(34px,5vw,64px) 0 30px;overflow:hidden}
 .sketchbook-heading{text-align:center;max-width:760px;margin:0 auto 24px;padding:0 20px}
 .sketchbook-heading .eyebrow{color:#8a6b3e;font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;margin:0 0 10px}
@@ -158,8 +165,7 @@ html{scroll-behavior:smooth}
 .sketchbook-locations b{color:#183b30;font-weight:700}
 .sketchbook-locations i{font-style:normal;color:#b18d58}
 @media(max-width:700px){
-.edge-home-hero{height:68vh;min-height:420px;max-height:680px}
-.edge-home-hero img{object-position:52% center}
+.edge-home-hero img{object-position:center}
 .sketchbook-home{padding-bottom:20px}
 .sketchbook-frame{width:96%;height:76vh;min-height:500px;max-height:760px;border-width:6px}
 .sketchbook-gallery{width:92%;grid-template-columns:1fr;gap:12px;margin-top:16px}
@@ -219,7 +225,8 @@ html{scroll-behavior:smooth}
 
 <!-- ================= HOMEPAGE HERO IMAGE ================= -->
 <section class="edge-home-hero" aria-label="EDGE STONES landscape showcase">
-<img src="https://drive.google.com/uc?export=view&id=15pZnI6X5ca4q7DKupRzet4IrBoWb4fYq" alt="EDGE STONES natural stone lettering set in a landscaped hillside garden" fetchpriority="high">
+<img src="images/edge-stones-landscaping-hero.jpg" alt="A lush landscaped garden with a winding stone path and an organic transition into the page" fetchpriority="high">
+<h1 class="edge-home-brand">EDGE STONES</h1>
 </section>
 
 <!-- ================= MARQUEE ================= -->
