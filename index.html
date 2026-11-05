@@ -1,4 +1,10 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Premium Stones & Landscaping | EDGE STONES</title><meta name="description" content="EDGE STONES — premium stones, landscaping and outdoor materials in Kerala. Head office Kanjirapally."><link rel="icon" href="https://edgestones.in/images/logo-mark.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Premium Stones & Landscaping | EDGE STONES</title><meta name="description" content="EDGE STONES — premium stones, landscaping and outdoor materials in Kerala. Head office Kanjirapally."><link rel="icon" href="https://edgestones.in/images/logo-mark.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><style>
+#edge-intro{position:fixed;inset:0;z-index:99999;background:#102b25;display:flex;align-items:center;justify-content:center;opacity:1;visibility:visible;transition:opacity .9s ease,visibility .9s ease}
+#edge-intro.is-finished{opacity:0;visibility:hidden;pointer-events:none}
+#edge-intro video{width:100%;height:100%;object-fit:contain;background:#102b25}
+body.edge-intro-lock{overflow:hidden}
+@media(max-width:600px){#edge-intro video{object-fit:contain}}
+</style></head><body class="edge-intro-lock"><div id="edge-intro" aria-label="EDGE STONES animated logo introduction"><video id="edge-intro-video" autoplay muted playsinline preload="auto"><source src="motionlogo-animated-20s-hd1080p.mp4" type="video/mp4"></video></div>
 <header class="header"><a class="brand" href="index.html"><img src="https://edgestones.in/images/logo-mark.png" alt="EDGE STONES logo"><span>EDGE <small>STONES &amp; LANDSCAPING</small></span></a>
 <button class="menu-toggle" aria-label="Open menu">☰</button><nav><a href="index.html">Home</a><a href="products.html">Products</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 <a class="nav-cta" href="https://wa.me/917306684418">WhatsApp Us ↗</a></header>
@@ -16,4 +22,23 @@
 <div><h4>Find us</h4><p>Erumbupalam Branch · Valara P.O, PIN 685561, Kerala</p><p>Kanjirapally Head Office</p><p>Kattapana Branch</p></div>
 <div><h4>Contact</h4><a href="tel:+919526309900">Erumbupalam: +91 95263 09900</a><a href="tel:+917306684418">WhatsApp: +91 73066 84418</a><a href="tel:+919526469900">Kanjirapally: +91 95264 69900</a><a href="tel:+919526109900">Kattapana: +91 95261 09900</a></div></div>
 <div class="copyright">© 2026 EDGE STONES · Head office: Kanjirapally, Kerala <span>Website designed &amp; developed by MOHAMMED MEHAROOF · Independent Web Developer</span></div></footer>
-<script src="js/site.js"></script></body></html>
+<script src="js/site.js"></script><script>
+(function(){
+  var intro=document.getElementById('edge-intro');
+  var video=document.getElementById('edge-intro-video');
+  if(!intro||!video)return;
+  document.body.classList.add('edge-intro-lock');
+  function finish(){
+    if(intro.classList.contains('is-finished'))return;
+    intro.classList.add('is-finished');
+    document.body.classList.remove('edge-intro-lock');
+    window.setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro);},950);
+  }
+  video.addEventListener('ended',finish,{once:true});
+  video.addEventListener('error',finish,{once:true});
+  var playPromise=video.play();
+  if(playPromise&&typeof playPromise.catch==='function'){
+    playPromise.catch(function(){video.muted=true;video.play().catch(finish);});
+  }
+})();
+</script></body></html>
