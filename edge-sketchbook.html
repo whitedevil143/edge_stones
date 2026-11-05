@@ -25,7 +25,7 @@ body{font-family:Arial,sans-serif;color:#253d2d;background:radial-gradient(ellip
 .book{position:relative;width:100%;aspect-ratio:1.52;background:#f8f6ef;border:1px solid #d6d2c5;border-radius:5px;overflow:hidden;transform:perspective(1800px) rotateX(5deg) rotateY(-3deg);transform-style:preserve-3d;box-shadow:0 3px 0 #d4cfbf,0 7px 0 #e5e0d3,0 10px 2px #7775,0 22px 36px -22px #263a2b66}
 .book:after{content:"";position:absolute;inset:0;pointer-events:none;border:1px solid #fff9;box-shadow:inset 0 0 24px #263a2b12}
 .page-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#f8f6ef;display:block}
-.sheet{position:absolute;inset:0;z-index:3;transform-style:preserve-3d;transform-origin:left center;backface-visibility:hidden;display:none}
+.sheet{position:absolute;inset:0;z-index:3;transform-style:preserve-3d;transform-origin:left center;display:none}
 .sheet.active{display:block}
 .sheet.turn-next{animation:turn-next .72s cubic-bezier(.2,.72,.25,1) forwards}
 .sheet.turn-prev{transform-origin:right center;animation:turn-prev .72s cubic-bezier(.2,.72,.25,1) forwards}
@@ -84,23 +84,28 @@ function turn(direction){
  const target=index+direction;
  if(target<0||target>=PAGES.length)return;
  locked=true;
- front.src=PAGES[index].url;
- front.alt=PAGES[index].title;
- back.src=PAGES[target].url;
- back.alt=PAGES[target].title;
- sheet.className="sheet";
- void sheet.offsetWidth;
- sheet.classList.add("active",direction>0?"turn-next":"turn-prev");
- sheet.setAttribute("aria-hidden","false");
- const finish=()=>{
-  sheet.removeEventListener("animationend",finish);
-  index=target;
+ const nextImage=new Image();
+ nextImage.onload=()=>{
+  front.src=PAGES[index].url;
+  front.alt=PAGES[index].title;
+  back.src=PAGES[target].url;
+  back.alt=PAGES[target].title;
   sheet.className="sheet";
-  sheet.setAttribute("aria-hidden","true");
-  render();
-  locked=false;
+  void sheet.offsetWidth;
+  sheet.classList.add("active",direction>0?"turn-next":"turn-prev");
+  sheet.setAttribute("aria-hidden","false");
+  const finish=()=>{
+   sheet.removeEventListener("animationend",finish);
+   index=target;
+   sheet.className="sheet";
+   sheet.setAttribute("aria-hidden","true");
+   render();
+   locked=false;
+  };
+  sheet.addEventListener("animationend",finish,{once:true});
  };
- sheet.addEventListener("animationend",finish,{once:true});
+ nextImage.onerror=()=>{locked=false;};
+ nextImage.src=PAGES[target].url;
 }
 current.addEventListener("load",()=>loading.hidden=true,{once:true});
 current.addEventListener("error",()=>{loading.hidden=false;loading.textContent="A PROJECT PHOTO COULD NOT BE LOADED";});
