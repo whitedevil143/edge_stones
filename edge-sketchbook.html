@@ -5,7 +5,16 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#eef1e8">
 <title>EDGE STONES — Interactive Project Sketchbook</title>
-<meta name="description" content="Explore EDGE STONES stonework, landscaping and outdoor design projects in an interactive photo sketchbook.">
+<meta name="description" content="Explore all 16 EDGE STONES stonework and landscaping project photographs in an interactive page-turning sketchbook.">
+<link rel="canonical" href="https://edgestones.in/edge-sketchbook.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EDGE STONES">
+<meta property="og:title" content="EDGE STONES — Interactive Project Sketchbook">
+<meta property="og:description" content="Explore EDGE STONES stonework and landscaping projects in an interactive photo sketchbook.">
+<meta property="og:url" content="https://edgestones.in/edge-sketchbook.html">
+<meta property="og:image" content="https://edgestones.in/images/edge-stones-landscaping-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://edgestones.in/images/edge-stones-landscaping-hero.jpg">
 <style>
 *{box-sizing:border-box}
 html,body{width:100%;height:100%;margin:0;overflow:hidden}
@@ -43,7 +52,7 @@ body{font-family:Arial,sans-serif;color:#253d2d;background:radial-gradient(ellip
 <div class="book-stage">
 <div class="book" id="book" aria-live="polite">
 <div class="loading" id="loading">LOADING PROJECT SKETCHBOOK…</div>
-<img class="page-image" id="currentPage" alt="EDGE STONES project photograph">
+<img class="page-image" id="currentPage" alt="EDGE STONES project photograph" fetchpriority="high" decoding="async">
 <div class="sheet" id="sheet" aria-hidden="true"><img class="face front" id="frontPage" alt=""><img class="face back" id="backPage" alt=""></div>
 <div class="spine" aria-hidden="true"></div>
 </div>
