@@ -1,10 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Premium Stones & Landscaping | EDGE STONES</title><meta name="description" content="EDGE STONES — premium stones, landscaping and outdoor materials in Kerala. Head office Kanjirapally."><link rel="icon" href="https://edgestones.in/images/logo-mark.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><style>
-#edge-intro{position:fixed;inset:0;z-index:99999;background:#102b25;display:flex;align-items:center;justify-content:center;opacity:1;visibility:visible;transition:opacity .9s ease,visibility .9s ease}
-#edge-intro.is-finished{opacity:0;visibility:hidden;pointer-events:none}
-#edge-intro video{width:100%;height:100%;object-fit:contain;background:#102b25}
-body.edge-intro-lock{overflow:hidden}
-@media(max-width:600px){#edge-intro video{object-fit:contain}}
-</style></head><body class="edge-intro-lock"><div id="edge-intro" aria-label="EDGE STONES animated logo introduction"><video id="edge-intro-video" autoplay muted playsinline preload="auto"><source src="motionlogo-animated.mp4" type="video/mp4"></video></div>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Premium Stones & Landscaping | EDGE STONES</title><meta name="description" content="EDGE STONES — premium stones, landscaping and outdoor materials in Kerala. Head office Kanjirapally."><link rel="icon" href="https://edgestones.in/images/logo-mark.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body>
 <header class="header"><a class="brand" href="index.html"><img src="https://edgestones.in/images/logo-mark.png" alt="EDGE STONES logo"><span>EDGE <small>STONES &amp; LANDSCAPING</small></span></a>
 <button class="menu-toggle" aria-label="Open menu">☰</button><nav><a href="index.html">Home</a><a href="products.html">Products</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 <a class="nav-cta" href="https://wa.me/917306684418">WhatsApp Us ↗</a></header>
@@ -16,10 +10,10 @@ body.edge-intro-lock{overflow:hidden}
   <div class="sketchbook-heading"><p class="eyebrow">A LOOK INSIDE OUR WORK</p><h2>Every space tells<br><em>a story.</em></h2><p>Turn through the EDGE STONES project sketchbook and explore real spaces shaped with natural stone and thoughtful landscaping.</p></div>
   <div class="home-book-wrap">
     <div class="home-book-stage">
-      <div class="home-book" id="homeBook" aria-label="Interactive EDGE STONES project sketchbook">
+      <div class="home-book" id="homeBook" tabindex="0" aria-label="Interactive EDGE STONES project sketchbook">
         <img class="home-book-page" id="homeBookCurrent" src="images/sketchbook/IMG-20261102-WA0027.jpg" alt="EDGE STONES project photograph" loading="lazy">
         <div class="home-book-sheet" id="homeBookSheet" aria-hidden="true"><img class="home-book-face front" id="homeBookFront" alt=""><img class="home-book-face back" id="homeBookBack" alt=""></div>
-        <div class="home-book-spine"></div>
+        <div class="home-book-spine" aria-hidden="true"></div>
       </div>
       <div class="home-book-controls"><button type="button" id="homeBookPrev" aria-label="Previous project page">‹</button><span id="homeBookCount">01 / 16</span><button type="button" id="homeBookNext" aria-label="Next project page">›</button></div>
       <p class="home-book-caption">EDGE STONES · PROJECT COLLECTION</p>
@@ -46,28 +40,9 @@ body.edge-intro-lock{overflow:hidden}
  if(!book||!current||!sheet)return;
  let index=0,busy=false;
  function render(){current.src=pages[index];count.textContent=String(index+1).padStart(2,"0")+" / "+String(pages.length).padStart(2,"0");prev.disabled=index===0;next.disabled=index===pages.length-1;}
- function turn(dir){if(busy)return;let target=index+dir;if(target<0||target>=pages.length)return;busy=true;let probe=new Image();probe.onload=function(){front.src=pages[index];back.src=pages[target];sheet.className="home-book-sheet";void sheet.offsetWidth;sheet.classList.add("active",dir>0?"turn-next":"turn-prev");sheet.setAttribute("aria-hidden","false");let done=function(){sheet.removeEventListener("animationend",done);index=target;sheet.className="home-book-sheet";sheet.setAttribute("aria-hidden","true");render();busy=false;};sheet.addEventListener("animationend",done,{once:true});};probe.onerror=function(){busy=false;};probe.src=pages[target];}
+ function turn(dir){if(busy)return;let target=index+dir;if(target<0||target>=pages.length)return;busy=true;let probe=new Image();probe.onload=function(){front.src=pages[index];back.src=pages[target];current.src=pages[target];sheet.className="home-book-sheet";void sheet.offsetWidth;sheet.classList.add("active",dir>0?"turn-next":"turn-prev");sheet.setAttribute("aria-hidden","false");let done=function(){sheet.removeEventListener("animationend",done);index=target;sheet.className="home-book-sheet";sheet.setAttribute("aria-hidden","true");render();busy=false;};sheet.addEventListener("animationend",done,{once:true});};probe.onerror=function(){busy=false;};probe.src=pages[target];}
  prev.addEventListener("click",()=>turn(-1));next.addEventListener("click",()=>turn(1));
  let sx=0;book.addEventListener("touchstart",e=>{sx=e.changedTouches[0].clientX;},{passive:true});book.addEventListener("touchend",e=>{let dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>35)turn(dx<0?1:-1);},{passive:true});
  book.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")turn(-1);if(e.key==="ArrowRight")turn(1);});render();
-})();
-</script><script>
-(function(){
-  var intro=document.getElementById('edge-intro');
-  var video=document.getElementById('edge-intro-video');
-  if(!intro||!video)return;
-  document.body.classList.add('edge-intro-lock');
-  function finish(){
-    if(intro.classList.contains('is-finished'))return;
-    intro.classList.add('is-finished');
-    document.body.classList.remove('edge-intro-lock');
-    window.setTimeout(function(){if(intro.parentNode)intro.parentNode.removeChild(intro);},950);
-  }
-  video.addEventListener('ended',finish,{once:true});
-  video.addEventListener('error',finish,{once:true});
-  var playPromise=video.play();
-  if(playPromise&&typeof playPromise.catch==='function'){
-    playPromise.catch(function(){video.muted=true;video.play().catch(finish);});
-  }
 })();
 </script></body></html>

@@ -45,6 +45,15 @@ body{font-family:Arial,sans-serif;color:#253d2d;background:radial-gradient(ellip
 @keyframes shadow{0%,100%{opacity:.8;transform:scaleX(.94)}50%{opacity:.45;transform:scaleX(1.04)}}
 @media(max-width:640px){.viewer{padding:18px 2vw 44px}.book-stage{width:min(98vw,calc((100svh - 94px)*1.12))}.book{transform:perspective(1200px) rotateX(3deg) rotateY(-1.5deg)}.controls{bottom:-39px}.control{width:34px;height:34px}.caption{top:calc(100% + 51px);font-size:8px}}
 @media(prefers-reduced-motion:reduce){.book-stage,.book-stage:before{animation:none}.sheet.turn-next,.sheet.turn-prev{animation-duration:.01ms}}
+/* Single-photo leaves with a bound edge and layered paper depth. */
+.book-stage{width:min(88vw,760px,calc((100svh - 100px)*1.38));filter:none}
+.book-stage:before{left:12%;right:12%;bottom:-10%;height:12%;background:rgba(35,53,40,.32);filter:blur(24px)}
+.book{aspect-ratio:1.38;background:#f7f3e9;border:8px solid #1b392e;border-left-width:18px;border-radius:5px 10px 10px 5px;box-shadow:0 4px 0 #c6bcaa,0 8px 0 #e8e0cf,0 12px 0 #b8ae9d,0 16px 2px #6c6d5e,0 35px 40px -22px #102b2580}
+.page-image,.face{padding:clamp(12px,3vw,32px);background:#f7f3e9}
+.spine{left:0;width:14px;background:linear-gradient(90deg,#887a6255,#fff8,transparent)}
+.controls{bottom:-48px}.caption{top:calc(100% + 58px)}
+.control:focus-visible{outline:3px solid #a98752;outline-offset:4px}
+@media(max-width:640px){.book-stage{width:min(91vw,calc((100svh - 135px)*1.38))}.book{border-width:5px;border-left-width:12px}.controls{bottom:-43px}.caption{top:calc(100% + 49px)}}
 </style>
 </head>
 <body>
@@ -87,6 +96,7 @@ function turn(direction){
  const nextImage=new Image();
  nextImage.onload=()=>{
   front.src=PAGES[index].url;
+  current.src=PAGES[target].url;
   front.alt=PAGES[index].title;
   back.src=PAGES[target].url;
   back.alt=PAGES[target].title;
