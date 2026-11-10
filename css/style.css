@@ -35,3 +35,13 @@
 @keyframes home-book-shadow{0%,100%{opacity:.78;transform:scaleX(.92)}50%{opacity:.38;transform:scaleX(1.08)}}
 @media(max-width:650px){.home-book-stage:before{bottom:-7%;height:12%;filter:blur(15px)}.home-book{transform:perspective(1200px) rotateX(3deg) rotateY(-1.5deg)}}
 @media(prefers-reduced-motion:reduce){.home-book-stage:before{animation:none}.home-book-sheet.turn-next,.home-book-sheet.turn-prev{animation-duration:.01ms}}
+
+/* A single mounted photograph on each leaf, bound at the left edge. */
+.home-book-wrap{padding:24px 0 0}
+.home-book-stage{width:min(88vw,760px);filter:none}
+.home-book-stage:before{left:12%;right:12%;bottom:72px;height:9%;background:rgba(16,43,37,.34);filter:blur(24px)}
+.home-book{aspect-ratio:1.38;background:#f7f3e9;border:8px solid #1b392e;border-left-width:18px;border-radius:5px 10px 10px 5px;box-shadow:0 4px 0 #c6bcaa,0 8px 0 #e8e0cf,0 12px 0 #b8ae9d,0 16px 2px #6c6d5e,0 35px 40px -22px #102b2580}
+.home-book-page,.home-book-face{object-fit:contain;padding:clamp(12px,3vw,32px);background:#f7f3e9}
+.home-book-spine{left:0;width:14px;background:linear-gradient(90deg,#887a6255,#fff8,transparent)}
+.home-book:focus-visible,.home-book-controls button:focus-visible{outline:3px solid #a98752;outline-offset:4px}
+@media(max-width:650px){.home-book-stage{width:91vw}.home-book{border-width:5px;border-left-width:12px}.home-book-stage:before{bottom:65px}}
